@@ -32,9 +32,6 @@
     "eject": "react-scripts eject",
     "postinstall": "semantic-ui-css-patch"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
