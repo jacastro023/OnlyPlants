@@ -21,7 +21,7 @@ async function create(req, res){
     
 }
 
-async function deleteLike(req, res){
+async function deleteComment(req, res){
     try {
         
         const post = await Post.findOne({'comments._id': req.params.id, 'comments.username': req.user.username, 'comments.content': req.user.content});

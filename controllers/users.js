@@ -9,6 +9,7 @@ const s3 = new S3(); // initialize the construcotr
 module.exports = {
   signup,
   login,
+  profile
 };
 
 async function signup(req, res) {
