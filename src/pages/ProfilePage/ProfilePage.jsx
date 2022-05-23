@@ -102,14 +102,14 @@ export default function ProfilePage(props) {
       </Grid.Row>
       <Grid.Row centered>
         <Grid.Column style={{ maxWidth: 750 }}>
-        <PostGallery
+        {(posts.length > 0) ?  <PostGallery
             isProfile={true}
             posts={posts}
             numPhotosCol={3}
             user={props.user}
             addLike={addLike}
             removeLike={removeLike}
-          />
+          /> : <h2>No posts yet</h2> }
         </Grid.Column>
       </Grid.Row>
     </Grid>

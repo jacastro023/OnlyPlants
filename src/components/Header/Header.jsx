@@ -10,6 +10,12 @@ export default function PageHeader({ user, handleLogout }) {
         <Link to="/">
           <Icon name="home"></Icon>
         </Link>
+        <Link to="/post" >
+          Post
+        </Link>
+        <Link to="/feed" >
+          Feed
+        </Link>
         <Link to="" onClick={handleLogout}>
           Logout
         </Link>
