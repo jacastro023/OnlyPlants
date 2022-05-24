@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 import PageHeader from "../../components/Header/Header";
+import FruitPlants from "../../components/FruitPlants/FruitPlants";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
-import { Grid } from "semantic-ui-react";
+import { Grid, Divider } from "semantic-ui-react";
 
 export default function HomePage({ user, handleLogout }) {
   const [error, setError] = useState("");
@@ -26,6 +27,8 @@ export default function HomePage({ user, handleLogout }) {
       </Grid.Row>
       <Grid.Row>
         <h1>Home Page</h1>
+        <Divider />
+        <FruitPlants />
       </Grid.Row>
     </Grid>
   );

@@ -20,6 +20,7 @@ export default function PageHeader({ user, handleLogout }) {
           Logout
         </Link>
       </Header>
+      <Header as="h2" textAlign='center'>OnlyPlants</Header>
       <Header as="h2" floated="left">
         <Link to={`/${user?.username}`}>
           <Image
