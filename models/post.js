@@ -17,12 +17,14 @@ const commentsSchema = mongoose.Schema(
 );
 
 // A post has many likes, a like belongs to a POST
+// A post has many comments, a comment belongs to a POST
 const postSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // referencing a model
   photoUrl: String,
+  name: String,
   description: String,
   likes: [likesSchema], // embedded schema
-  comments: [commentsSchema],
+  comments: [commentsSchema], // embedded schema
 });
 
 module.exports = mongoose.model("Post", postSchema);

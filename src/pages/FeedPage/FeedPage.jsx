@@ -45,25 +45,6 @@ export default function Feed({user, handleLogout}) {
   }
 
 
-
-  // C create in Crud
-  // we invoke this function in addPost component when the submit button on our form is clicked
-  // so we need to pass it as a prop
-  async function handleAddPost(post) {
-    try {
-      setLoading(true);
-      const data = await postsAPI.create(post); // our server is going to return
-      // the created post, that will be inside of data, which is the response from
-      // the server, we then want to set it in state
-      console.log(data, " this is response from the server, in handleAddPost");
-      setPosts([data.post, ...posts]);
-      setLoading(false);
-    } catch (err) {
-      console.log(err);
-      setError(err.message);
-    }
-  }
-
   // R read in crud
   async function getPosts() {
     try {

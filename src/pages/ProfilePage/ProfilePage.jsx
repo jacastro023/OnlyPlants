@@ -11,10 +11,6 @@ import * as likesAPI from '../../utils/likeApi';
 
 import { useParams } from "react-router-dom";
 
-
-
-
-
 export default function ProfilePage(props) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");

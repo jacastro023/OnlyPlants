@@ -1,0 +1,11 @@
+.headerLinks {
+  height: 2em;
+  line-height: 2em;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-right: solid;
+}
+
+.headerLinks2 {
+  padding-left: 10px;
+}

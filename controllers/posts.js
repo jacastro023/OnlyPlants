@@ -16,7 +16,7 @@ function create(req, res){
         const params = {Bucket: process.env.BUCKET_NAME, Key: filePath, Body: req.file.buffer};
         s3.upload(params, async function(err, data){
 			console.log(err, ' from aws')
-            const post = await Post.create({caption: req.body.caption, user: req.user, photoUrl: data.Location});
+            const post = await Post.create({description: req.body.description ,name: req.body.name, user: req.user, photoUrl: data.Location});
             console.log(post)
 			// make sure the post we're sending back has the user populated
 			await post.populate('user');

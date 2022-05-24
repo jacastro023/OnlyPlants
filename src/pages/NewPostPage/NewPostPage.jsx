@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import {useNavigate} from 'react-router-dom';
 import PageHeader from "../../components/Header/Header";
 import AddPostForm from "../../components/AddPostForm/AddPostForm";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
@@ -12,6 +12,8 @@ import { Grid } from "semantic-ui-react";
 
 export default function NewPost({user, handleLogout}) {
   console.log(postsAPI, " <-- postsAPI")
+  console.log(user)
+  const navigate = useNavigate();
   const [posts, setPosts] = useState([]); // <- likes are inside of the each post in the posts array
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -28,6 +30,7 @@ export default function NewPost({user, handleLogout}) {
       console.log(data, " this is response from the server, in handleAddPost");
       setPosts([data.post, ...posts]);
       setLoading(false);
+      navigate(`/${user.username}`)
     } catch (err) {
       console.log(err);
       setError(err.message);
