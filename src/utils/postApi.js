@@ -28,3 +28,14 @@ export function create(post) {
       throw new Error('Bad Credentials! CHECK THE SERVER TERMINAL!')
     })
   }
+
+  export function getPost(id){
+    return fetch(BASE_URL + '/details/' + id, {
+      headers: {
+        Authorization: "Bearer " + tokenService.getToken(),
+      }
+    }).then(res => {
+      if(res.ok) return res.json();
+      throw new Error('Bad Credentials! CHECK THE SERVER TERMINAL!')
+    })
+  }

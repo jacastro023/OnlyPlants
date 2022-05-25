@@ -1,7 +1,11 @@
 import React from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 function PostCard({ post, isProfile, removeLike, addLike, user }) {
+  console.log(post);
+  const navigate = useNavigate();
   // call the addLike or the removeLike when we click on the heart!
 
   // We need to know if the logged in user has liked this particular post!
@@ -19,9 +23,13 @@ function PostCard({ post, isProfile, removeLike, addLike, user }) {
   // if the logged users id exists, the heart should be red, because the logged in user has liked the post
   // and the clicked handler should removeLike
   const likeColor = likeIndex > -1 ? "red" : "grey";
-
   // if the logged users id doesn't exist in the post.likes array, then the heart should be
   // grey, because the user hasn't liked the post, and the click handler should be addLike
+
+  function handleClick() {
+    navigate(`/details/${post._id}`);
+  }
+
   return (
     <Card key={post._id} raised>
       {isProfile ? (
@@ -45,7 +53,13 @@ function PostCard({ post, isProfile, removeLike, addLike, user }) {
         </Card.Content>
       )}
 
-      <Image src={`${post.photoUrl}`} wrapped ui={false} />
+      <Image
+        src={`${post.photoUrl}`}
+        wrapped
+        ui={false}
+        onClick={handleClick}
+      />
+      <Card.Description textAlign="center">Name: {post.name}</Card.Description>
       {isProfile ? (
         ""
       ) : (
@@ -53,7 +67,7 @@ function PostCard({ post, isProfile, removeLike, addLike, user }) {
           <Card.Description>{post.description}</Card.Description>
         </Card.Content>
       )}
-      <Card.Description textAlign="center">Name: {post.name}</Card.Description>
+
       <Card.Content extra textAlign={"right"}>
         <Icon
           name={"heart"}
