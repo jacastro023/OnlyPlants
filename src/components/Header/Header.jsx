@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Header, Segment, Image, Icon } from "semantic-ui-react";
-import "../Header/header.css"
+import "./header.css"
 
 export default function PageHeader({ user, handleLogout }) {
     console.log(user, 'user in header')
   return (
-    <Segment clearing>
+    <Segment clearing className="navcss">
       <Header as="h2" floated="right">
         <Link to="/" className="headerLinks">
           <Icon name="home" ></Icon>
@@ -33,7 +33,7 @@ export default function PageHeader({ user, handleLogout }) {
           ></Image>
         </Link>
       </Header>
-      <Header as="h2" textAlign="center">OnlyPlants</Header>
+      <Header as="h1" floated="left" className="titlebg">OnlyPlants</Header>
     </Segment>
   );
 }

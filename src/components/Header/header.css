@@ -9,3 +9,39 @@
 .headerLinks2 {
   padding-left: 10px;
 }
+
+.navcss {
+    background-image: url(../../images/navbackground.png) !important;
+    background-size:cover !important;                      
+    background-repeat:no-repeat !important;
+}
+
+.titlebg {
+  background-image: url(../../images/vine.jpg) !important;
+  background-size: 174px !important;
+  background-repeat: no-repeat !important;
+  height: 59px !important;
+  width: 150px !important;
+  background-position-y: 2px !important;
+  background-position-x: -13px !important;
+}
+
+.ui.segment {
+  padding: 0em !important;
+}
+
+.ui.header .icon:only-child {
+  color: white !important;
+}
+
+.ui.header .icon:only-child:hover {
+  color: green !important;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  color: green;
+}

@@ -20,7 +20,7 @@ export default function HomePage({ user, handleLogout }) {
 
   return (
     <Grid centered>
-      <Grid.Row>
+      <Grid.Row >
         <Grid.Column>
           <PageHeader handleLogout={handleLogout} user={user} />
         </Grid.Column>

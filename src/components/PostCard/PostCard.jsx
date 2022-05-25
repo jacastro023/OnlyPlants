@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import "../PostCard/postcard.css"
 
 function PostCard({ post, isProfile, removeLike, addLike, user }) {
   console.log(post);
@@ -58,6 +59,7 @@ function PostCard({ post, isProfile, removeLike, addLike, user }) {
         wrapped
         ui={false}
         onClick={handleClick}
+        className="cardimg"
       />
       <Card.Description textAlign="center">Name: {post.name}</Card.Description>
       {isProfile ? (
