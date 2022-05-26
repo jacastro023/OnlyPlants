@@ -11,8 +11,6 @@ import * as likesAPI from '../../utils/likeApi';
 import { Grid } from "semantic-ui-react";
 
 export default function NewPost({user, handleLogout}) {
-  console.log(postsAPI, " <-- postsAPI")
-  console.log(user)
   const navigate = useNavigate();
   const [posts, setPosts] = useState([]); // <- likes are inside of the each post in the posts array
   const [loading, setLoading] = useState(true);
@@ -27,12 +25,10 @@ export default function NewPost({user, handleLogout}) {
       const data = await postsAPI.create(post); // our server is going to return
       // the created post, that will be inside of data, which is the response from
       // the server, we then want to set it in state
-      console.log(data, " this is response from the server, in handleAddPost");
       setPosts([data.post, ...posts]);
       setLoading(false);
       navigate(`/${user.username}`)
     } catch (err) {
-      console.log(err);
       setError(err.message);
     }
   }

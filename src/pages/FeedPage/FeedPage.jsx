@@ -15,7 +15,6 @@ import { Grid } from "semantic-ui-react";
 
 
 export default function Feed({user, handleLogout}) {
-  console.log(postsAPI, " <-- postsAPI")
   const [posts, setPosts] = useState([]); // <- likes are inside of the each post in the posts array
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -24,10 +23,8 @@ export default function Feed({user, handleLogout}) {
   async function addLike(postId){
     try {
       const data = await likesAPI.create(postId)
-      console.log(data, ' <- the response from the server when we make a like');
       getPosts(); // <- to go get the updated posts with the like
     } catch(err){
-      console.log(err)
       setError(err.message)
     }
   }
@@ -35,11 +32,9 @@ export default function Feed({user, handleLogout}) {
   async function removeLike(likeId){
     try {
       const data = await likesAPI.removeLike(likeId);
-      console.log(data, '<-  this is the response from the server when we remove a like')
       getPosts()
       
     } catch(err){
-      console.log(err);
       setError(err.message);
     }
   }
@@ -49,11 +44,9 @@ export default function Feed({user, handleLogout}) {
   async function getPosts() {
     try {
       const data = await postsAPI.getAll();
-      console.log(data, " this is data,");
       setPosts([...data.posts]);
       setLoading(false);
     } catch (err) {
-      console.log(err.message, " this is the error");
       setError(err.message);
     }
   }

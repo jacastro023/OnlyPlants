@@ -5,7 +5,6 @@ import "./header.css"
 import icon from "../../images/icon.png";
 
 export default function PageHeader({ user, handleLogout }) {
-    console.log(user, 'user in header')
   return (
     <Segment clearing className="navcss">
       <Header as="h2" floated="right">

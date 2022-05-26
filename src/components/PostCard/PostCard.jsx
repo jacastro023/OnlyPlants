@@ -12,7 +12,6 @@ function PostCard({
   user,
   handleDeletePost,
 }) {
-  console.log(post);
   const navigate = useNavigate();
   // call the addLike or the removeLike when we click on the heart!
 

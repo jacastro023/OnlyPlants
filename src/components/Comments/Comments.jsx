@@ -16,7 +16,6 @@ import {
 export default function Comments({ post, handleAddComment, user, removeComment }) {
 
     function handleDelete(e){
-        console.log(e.target.id,"<-----------handle comment delete")
         removeComment(e.target.id)
     }
 

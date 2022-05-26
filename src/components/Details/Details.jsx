@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import Comments from "../Comments/Comments";
 
 function Details({ post, removeLike, addLike, user, handleAddComment, removeComment }) {
-  console.log(post);
   const navigate = useNavigate();
   // call the addLike or the removeLike when we click on the heart!
 

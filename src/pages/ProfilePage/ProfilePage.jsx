@@ -24,10 +24,8 @@ export default function ProfilePage(props) {
   async function addLike(postId){
     try {
       const data = await likesAPI.create(postId)
-      console.log(data, ' <- the response from the server when we make a like');
       getProfile(); // <- to go get the updated posts with the like
     } catch(err){
-      console.log(err)
       setError(err.message)
     }
   }
@@ -35,11 +33,8 @@ export default function ProfilePage(props) {
   async function removeLike(likeId){
     try {
       const data = await likesAPI.removeLike(likeId);
-      console.log(data, '<-  this is the response from the server when we remove a like')
       getProfile()
-      
     } catch(err){
-      console.log(err);
       setError(err.message);
     }
   }
@@ -48,13 +43,8 @@ export default function ProfilePage(props) {
   async function handleDeletePost(id) {
     try {
       const data = await postAPI.removePost(id);
-      console.log(
-        data,
-        "<-  this is the response from the server when we remove a post"
-      );
       getProfile();
     } catch (err) {
-      console.log(err);
       setError(err.message);
     }
   }
@@ -62,12 +52,10 @@ export default function ProfilePage(props) {
   async function getProfile() {
     try {
       const data = await userService.getProfile(username);
-      console.log(data, " < -- data");
       setLoading(() => false);
       setUser(() => data.user);
       setPosts(() => data.posts);
     } catch (err) {
-      console.log(err);
       setError("Profile Doesn't exists, CHECK YOUR TERMINAL FOR EXPRESS!");
     }
   }
