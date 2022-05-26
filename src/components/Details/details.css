@@ -1,0 +1,8 @@
+.cardimgdetails > img {
+    width: 100%;
+}
+
+.heartdetails {
+    float: right;
+    padding-right: 20px;
+}

@@ -1,0 +1,25 @@
+.introdiv {
+background-image: url('../../images/introbg.jpg');
+height: 750px;
+width: 100%;
+background-size: cover;
+color: white;
+text-align: center;
+text-align: -webkit-center;
+}
+
+.introtitle {
+    margin-top: 55px;
+    width: fit-content;
+    background: rgba(0, 128, 0, 0.3);
+    padding: 10px;
+}
+
+.introside {
+    float: right;
+    width: 25%;
+    margin-top: 50px;
+    margin-right: 50px;
+    background: rgba(0, 128, 0, 0.3);
+    padding: 10px;
+}

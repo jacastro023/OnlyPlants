@@ -8,7 +8,7 @@ const likesSchema = mongoose.Schema({
 const commentsSchema = mongoose.Schema(
   {
     username: String,
-    content: String,
+    comment: String,
     userId: { type: mongoose.Schema.Types.ObjectId },
   },
   {

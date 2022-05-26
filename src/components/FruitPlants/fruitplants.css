@@ -1,0 +1,7 @@
+.ui.small.image, .ui.small.images .image, .ui.small.images img, .ui.small.images svg {
+    height: 100px !important;
+}
+
+.vegetables {
+    margin-bottom: 50px;
+}

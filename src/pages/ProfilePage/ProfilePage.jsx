@@ -5,7 +5,7 @@ import Loading from "../../components/Loader/Loader";
 import ProfileBio from "../../components/ProfileBio/ProfileBio";
 import PostGallery from "../../components/PostGallery/PostGallery";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-
+import Footer from "../../components/Footer/Footer";
 import userService from "../../utils/userService";
 import * as likesAPI from '../../utils/likeApi';
 
@@ -85,7 +85,7 @@ export default function ProfilePage(props) {
   }
 
   return (
-    <Grid>
+    <Grid className="profilebg">
       <Grid.Row>
         <Grid.Column>
           <PageHeader handleLogout={props.handleLogout} user={props.user}/>
@@ -107,6 +107,9 @@ export default function ProfilePage(props) {
             removeLike={removeLike}
           /> : <h2>No posts yet</h2> }
         </Grid.Column>
+      </Grid.Row>
+      <Grid.Row>
+        <Footer />
       </Grid.Row>
     </Grid>
   );

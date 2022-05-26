@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Header, Segment, Image, Icon } from "semantic-ui-react";
 import "./header.css"
+import icon from "../../images/icon.png";
 
 export default function PageHeader({ user, handleLogout }) {
     console.log(user, 'user in header')
@@ -27,7 +28,7 @@ export default function PageHeader({ user, handleLogout }) {
             src={
               user?.photoUrl
                 ? user?.photoUrl
-                : "https://react.semantic-ui.com/images/wireframe/square-image.png"
+                : icon
             }
             avatar
           ></Image>

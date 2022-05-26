@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "./LoginPage.css";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import userService from "../../utils/userService";
+import PageHeader from "../../components/Header/Header";
 import { useNavigate, Link } from "react-router-dom";
+import icon from "../../images/icon.png";
 import {
   Button,
   Form,
@@ -45,14 +47,16 @@ export default function LoginPage(props) {
 
   return (
     <>
-      <Grid
-        textAlign="center"
-       
-        verticalAlign="middle"
-      >
+      <Grid textAlign="center" verticalAlign="middle">
+        <Grid.Row>
+          <Grid.Column>
+            <PageHeader handleLogout={props.handleLogout} user={props.user} />
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
         <Grid.Column style={{ maxWidth: 450 }}>
-          <Header as="h2" color="teal" textAlign="center">
-            <Image src="https://i.imgur.com/s4LrnlU.png" /> Log-in to your
+          <Header as="h2" color="green" textAlign="center">
+            <Image src={icon} /> Log-in to your
             account
           </Header>
           <Form autoComplete="off" onSubmit={handleSubmit}>
@@ -74,7 +78,7 @@ export default function LoginPage(props) {
                 required
               />
               <Button
-                color="teal"
+                color="green"
                 fluid
                 size="large"
                 type="submit"
@@ -84,13 +88,16 @@ export default function LoginPage(props) {
               </Button>
             </Segment>
           </Form>
-          <Message>
-            New to us? <Link to="/signup">Sign Up</Link>
+          <Message color="green">
+            New to us?{" "}
+            <Link to="/signup" className="greensign">
+              Sign Up
+            </Link>
           </Message>
           {error ? <ErrorMessage error={error} /> : null}
         </Grid.Column>
+        </Grid.Row>
       </Grid>
     </>
   );
 }
-
