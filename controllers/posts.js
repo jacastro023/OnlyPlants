@@ -7,7 +7,8 @@ const s3 = new S3();
 module.exports = {
     create,
     index,
-    postDetails
+    postDetails,
+    deletePost
 }
 
 function create(req, res){
@@ -61,3 +62,15 @@ async function postDetails(req, res){
       res.status(400).json({err})
     }
   }
+
+  async function deletePost(req, res){
+      console.log(req.params.id, "<--------deleting post")
+    try {
+        const post = await Post.findOne({_id: req.params.id});
+        post.remove() // mutating a document
+        await post.save() // after you mutate a document you must save
+        res.json({data: 'like removed'})
+    } catch(err){
+        res.status(400).json({err})
+    }
+}

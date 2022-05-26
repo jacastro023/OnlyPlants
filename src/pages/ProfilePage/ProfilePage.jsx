@@ -8,6 +8,7 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Footer from "../../components/Footer/Footer";
 import userService from "../../utils/userService";
 import * as likesAPI from '../../utils/likeApi';
+import * as postAPI from "../../utils/postApi";
 
 import { useParams } from "react-router-dom";
 
@@ -38,6 +39,21 @@ export default function ProfilePage(props) {
       getProfile()
       
     } catch(err){
+      console.log(err);
+      setError(err.message);
+    }
+  }
+
+
+  async function handleDeletePost(id) {
+    try {
+      const data = await postAPI.removePost(id);
+      console.log(
+        data,
+        "<-  this is the response from the server when we remove a post"
+      );
+      getProfile();
+    } catch (err) {
       console.log(err);
       setError(err.message);
     }
@@ -105,6 +121,7 @@ export default function ProfilePage(props) {
             user={props.user}
             addLike={addLike}
             removeLike={removeLike}
+            handleDeletePost={handleDeletePost}
           /> : <h2>No posts yet</h2> }
         </Grid.Column>
       </Grid.Row>

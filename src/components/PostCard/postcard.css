@@ -1,3 +1,11 @@
 .ui.card>.image>img, .ui.cards>.card>.image>img {
     height: 150px !important;
 }
+
+.profilehearticon {
+    float: right;
+}
+
+.profiletrashicon:hover {
+    color: red;
+}

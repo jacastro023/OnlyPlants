@@ -2,9 +2,16 @@ import React from "react";
 import { Card, Icon, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import "../PostCard/postcard.css"
+import "../PostCard/postcard.css";
 
-function PostCard({ post, isProfile, removeLike, addLike, user }) {
+function PostCard({
+  post,
+  isProfile,
+  removeLike,
+  addLike,
+  user,
+  handleDeletePost,
+}) {
   console.log(post);
   const navigate = useNavigate();
   // call the addLike or the removeLike when we click on the heart!
@@ -26,6 +33,10 @@ function PostCard({ post, isProfile, removeLike, addLike, user }) {
   const likeColor = likeIndex > -1 ? "red" : "grey";
   // if the logged users id doesn't exist in the post.likes array, then the heart should be
   // grey, because the user hasn't liked the post, and the click handler should be addLike
+
+  function handleDelete(e) {
+    handleDeletePost(e.target.id)
+  }
 
   function handleClick() {
     navigate(`/details/${post._id}`);
@@ -70,14 +81,27 @@ function PostCard({ post, isProfile, removeLike, addLike, user }) {
         </Card.Content>
       )}
 
-      <Card.Content extra textAlign={"right"}>
-        <Icon
-          name={"heart"}
-          size="large"
-          color={likeColor}
-          onClick={clickHandler}
-        />
-        {post.likes.length} Likes
+      <Card.Content extra>
+        {isProfile ? (
+          <Icon
+            name={"trash alternate"}
+            size="large"
+            className="profiletrashicon"
+            id={post._id}
+            onClick={handleDelete}
+          />
+        ) : (
+          ""
+        )}
+        <div className="profilehearticon">
+          <Icon
+            name={"heart"}
+            size="large"
+            color={likeColor}
+            onClick={clickHandler}
+          />
+          {post.likes.length} Likes
+        </div>
       </Card.Content>
     </Card>
   );
