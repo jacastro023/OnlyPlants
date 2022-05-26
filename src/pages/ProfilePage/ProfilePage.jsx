@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Grid } from "semantic-ui-react";
+import {useNavigate} from 'react-router-dom';
 import PageHeader from "../../components/Header/Header";
 import Loading from "../../components/Loader/Loader";
 import ProfileBio from "../../components/ProfileBio/ProfileBio";
@@ -13,6 +14,7 @@ import * as postAPI from "../../utils/postApi";
 import { useParams } from "react-router-dom";
 
 export default function ProfilePage(props) {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [user, setUser] = useState({});
@@ -43,7 +45,7 @@ export default function ProfilePage(props) {
   async function handleDeletePost(id) {
     try {
       const data = await postAPI.removePost(id);
-      getProfile();
+      getProfile()
     } catch (err) {
       setError(err.message);
     }

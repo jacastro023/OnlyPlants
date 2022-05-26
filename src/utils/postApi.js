@@ -39,8 +39,8 @@ export function create(post) {
     })
   }
 
-  export function removePost(postId){
-    return fetch(`${BASE_URL}/${postId}`, {
+  export function removePost(id){
+    return fetch(`${BASE_URL}/${id}`, {
       method: 'DELETE',
       headers: {
         'Authorization': 'Bearer ' + tokenService.getToken()
