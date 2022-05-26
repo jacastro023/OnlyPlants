@@ -77,10 +77,6 @@ export default function DetailsPage({ user, handleLogout }) {
   // then we can store that in state
   useEffect(() => {
     getPost();
-  }, []);
-
-  useEffect(() => {
-    handleAddComment();
   }, [comments]);
 
   if (error) {

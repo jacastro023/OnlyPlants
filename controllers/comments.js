@@ -6,22 +6,42 @@ module.exports = {
     deleteComment
 }
 
-function create(req, res){
-    console.log(req.body, "req.body comment")
-    console.log(req.params.id, "params id")
-    Post.findById(req.params.id, function(err, post) {
+
+async function create(req, res){
+ 
+    try {
+		// Find a post, so we need the id of the post
+        const post = await Post.findById(req.params.id);
         post.comments.push({
             username: req.user.username,
             comment:req.body.comment,
             userId: req.user._id
-        })
-        post.save(function(err) {
-            console.log(err, 'create controller for comments')
-        })
-    })
-
-    console.log('I made a comment!')
+        }); //mutating a document
+        await post.save()// save it
+        console.log(post,"saved post-----------------")
+        res.status(201).json({data: 'comment added'})
+    } catch(err){
+       
+        res.status(400).json({err})
+    }
+    
 }
+
+// function create(req, res){
+//     console.log(req.body, "req.body comment")
+//     console.log(req.params.id, "params id")
+//     Post.findById(req.params.id, function(err, post) {
+//         post.comments.push({
+//             username: req.user.username,
+//             comment:req.body.comment,
+//             userId: req.user._id
+//         })
+//         post.save();
+
+//     })
+
+//     console.log('I made a comment!')
+// }
 
 async function deleteComment(req, res){
     try {
