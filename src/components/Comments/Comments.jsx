@@ -1,7 +1,7 @@
 import _ from "lodash";
 import React, { Component, createRef } from "react";
 import CommentsForm from "../CommentForm/CommentForm";
-import "../Comments/comment.css"
+import "../Comments/comment.css";
 import {
   Grid,
   Header,
@@ -10,9 +10,16 @@ import {
   Ref,
   Segment,
   Sticky,
+  i,
 } from "semantic-ui-react";
 
-export default function PostFeed({ post, handleAddComment }) {
+export default function Comments({ post, handleAddComment, user, removeComment }) {
+
+    function handleDelete(e){
+        console.log(e.target.id,"<-----------handle comment delete")
+        removeComment(e.target.id)
+    }
+
   return (
     <Grid centered columns={2}>
       <Grid.Column>
@@ -21,9 +28,14 @@ export default function PostFeed({ post, handleAddComment }) {
             {post.comments.map((comment) => {
               return (
                 <div>
-                  <p className="commentdate">{comment.createdAt.toString().slice(0, 10)}</p>
+                  <p className="commentdate">
+                    {comment.createdAt.toString().slice(0, 10)}
+                  </p>
                   <h2 className="commentdetails">
                     {comment.username}: {comment.comment}
+                    {user.username == comment.username ? (
+                      <i class="trash alternate icon trashicon" id={comment._id} onClick={handleDelete}></i>
+                    ) : null}
                   </h2>
                 </div>
               );

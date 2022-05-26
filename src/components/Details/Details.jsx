@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Comments from "../Comments/Comments";
 
-function Details({ post, removeLike, addLike, user, handleAddComment }) {
+function Details({ post, removeLike, addLike, user, handleAddComment, removeComment }) {
   console.log(post);
   const navigate = useNavigate();
   // call the addLike or the removeLike when we click on the heart!
@@ -31,6 +31,7 @@ function Details({ post, removeLike, addLike, user, handleAddComment }) {
     navigate(`/details/${post._id}`);
   }
 
+
   return (
     <>
       <div key={post._id} textAlign="center">
@@ -53,7 +54,7 @@ function Details({ post, removeLike, addLike, user, handleAddComment }) {
         </p>
         <h2>Comments:</h2>
       </div>
-      <Comments post={post} handleAddComment={handleAddComment}/>
+      <Comments post={post} handleAddComment={handleAddComment} user={user} removeComment={removeComment}/>
     </>
   );
 }

@@ -6,3 +6,11 @@
   margin-top: 0;
   margin-bottom: 20px !important;
 }
+
+.trashicon {
+    float: right;
+}
+
+.trashicon:hover {
+    color: red;
+}

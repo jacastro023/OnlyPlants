@@ -45,6 +45,20 @@ export default function DetailsPage({ user, handleLogout }) {
     }
   }
 
+  async function removeComment(commentId) {
+    try {
+      const data = await commentAPI.removeComment(commentId);
+      console.log(
+        data,
+        "<-  this is the response from the server when we remove a like"
+      );
+      getPost();
+    } catch (err) {
+      console.log(err);
+      setError(err.message);
+    }
+  }
+
   async function getPost() {
     try {
       const data = await postAPI.getPost(id);
@@ -57,15 +71,18 @@ export default function DetailsPage({ user, handleLogout }) {
   }
 
   async function handleAddComment(comment) {
-    console.log(id)
-    console.log(comment)
+    console.log(id);
+    console.log(comment);
     try {
       setLoading(true);
       const data = await commentAPI.create(id, comment); // our server is going to return
       // the created post, that will be inside of data, which is the response from
       // the server, we then want to set it in state
-      console.log(data, " this is response from the server, in handleAddComment");
-      setComments([data.comments, ...comments])
+      console.log(
+        data,
+        " this is response from the server, in handleAddComment"
+      );
+      setComments([data.comments, ...comments]);
       setLoading(false);
     } catch (err) {
       console.log(err);
@@ -106,14 +123,15 @@ export default function DetailsPage({ user, handleLogout }) {
       </Grid.Row>
       <Grid.Row centered>
         <Grid.Column style={{ maxWidth: 750 }} textAlign="center">
-        <Details
-              post={post}
-              key={post._id}
-              addLike={addLike}
-              removeLike={removeLike}
-              handleAddComment={handleAddComment}
-              user={user}
-            />
+          <Details
+            post={post}
+            key={post._id}
+            addLike={addLike}
+            removeLike={removeLike}
+            handleAddComment={handleAddComment}
+            user={user}
+            removeComment={removeComment}
+          />
         </Grid.Column>
       </Grid.Row>
     </Grid>

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button, Form, Grid, Segment } from "semantic-ui-react";
 
 export default function AddPostForm(props) {
-    const [comment, setComment] = useState('')
+  const [comment, setComment] = useState("");
 
   function handleChange(e) {
     setComment({
@@ -21,8 +21,14 @@ export default function AddPostForm(props) {
 
   return (
     <Form comment>
-    <Form.TextArea name="comment" onChange={handleChange} required/>
-    <Button content='Add Comment' labelPosition='left' icon='edit' onClick={handleSubmit} />
-  </Form>
+      <h2>Add a Comment:</h2>
+      <Form.TextArea name="comment" onChange={handleChange} required />
+      <Button
+        content="Add Comment"
+        labelPosition="left"
+        icon="edit"
+        onClick={handleSubmit}
+      />
+    </Form>
   );
 }

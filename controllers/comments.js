@@ -27,21 +27,6 @@ async function create(req, res){
     
 }
 
-// function create(req, res){
-//     console.log(req.body, "req.body comment")
-//     console.log(req.params.id, "params id")
-//     Post.findById(req.params.id, function(err, post) {
-//         post.comments.push({
-//             username: req.user.username,
-//             comment:req.body.comment,
-//             userId: req.user._id
-//         })
-//         post.save();
-
-//     })
-
-//     console.log('I made a comment!')
-// }
 
 async function deleteComment(req, res){
     try {
