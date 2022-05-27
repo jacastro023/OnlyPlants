@@ -1,8 +1,10 @@
-.cardimgdetails > img {
-    width: 100%;
+img {
+    /* width: 100%; */
+    width: -webkit-fill-available;
 }
 
 .heartdetails {
     float: right;
     padding-right: 20px;
 }
+

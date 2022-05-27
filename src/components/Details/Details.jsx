@@ -3,6 +3,7 @@ import { Card, Icon, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Comments from "../Comments/Comments";
+import "../Details/details.css";
 
 function Details({ post, removeLike, addLike, user, handleAddComment, removeComment }) {
   const navigate = useNavigate();

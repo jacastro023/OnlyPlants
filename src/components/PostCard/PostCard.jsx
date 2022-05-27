@@ -12,6 +12,7 @@ function PostCard({
   user,
   handleDeletePost,
 }) {
+  console.log(user)
   const navigate = useNavigate();
   // call the addLike or the removeLike when we click on the heart!
 
@@ -81,7 +82,7 @@ function PostCard({
       )}
 
       <Card.Content extra>
-        {isProfile ? (
+        {(user.username == post.user.username) ? (
           <Icon
             name={"trash alternate"}
             size="large"
