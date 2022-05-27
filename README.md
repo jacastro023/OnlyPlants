@@ -60,6 +60,8 @@
 > semantic-ui
 >
 > jsonwebtoken
+>
+>mongoose/MongoDb
 
 #### Next Steps:
 
