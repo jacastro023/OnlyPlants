@@ -2,11 +2,12 @@ import React from 'react';
 import { Card, Dimmer, Segment, Image  } from 'semantic-ui-react'
 import PostCard from '../PostCard/PostCard';
 import Loader from '../Loader/Loader';
+import "../PostGallery/postgallery.css";
 
 export default function PostFeed({posts, numPhotosCol, isProfile, loading, addLike, removeLike, user, handleDeletePost }){
 
     return (
-        <Card.Group itemsPerRow={numPhotosCol} stackable>
+        <Card.Group itemsPerRow={numPhotosCol} stackable >
         {loading ? (
           <Segment>
             <Dimmer active inverted>

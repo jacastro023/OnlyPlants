@@ -9,3 +9,9 @@
 .profiletrashicon:hover {
     color: red;
 }
+
+@media only screen and (max-width: 767px) {
+    .ui.card, .ui.cards>.card {
+        max-width: 50%;
+    }
+  }

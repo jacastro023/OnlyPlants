@@ -1,25 +1,51 @@
 .introdiv {
-background-image: url('../../images/introbg.jpg');
-height: 750px;
-width: 100%;
-background-size: cover;
-color: white;
-text-align: center;
-text-align: -webkit-center;
+  background-image: url("../../images/introbg.jpg");
+  width: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  text-align: -webkit-center;
 }
 
 .introtitle {
-    margin-top: 55px;
-    width: fit-content;
-    background: rgba(0, 128, 0, 0.3);
-    padding: 10px;
+  margin-top: 55px;
+  width: fit-content;
+  background: rgba(0, 128, 0, 0.3);
+  padding: 10px;
 }
 
 .introside {
-    float: right;
-    width: 25%;
-    margin-top: 50px;
-    margin-right: 50px;
-    background: rgba(0, 128, 0, 0.3);
-    padding: 10px;
+  float: right;
+  width: 25%;
+  margin-top: 20px;
+  margin-right: 50px;
+  background: rgba(0, 128, 0, 0.3);
+  padding: 10px;
 }
+
+@media only screen and (max-width: 1050px) {
+    .introside {
+      width: 30%;
+    }
+  }
+
+@media only screen and (max-width: 900px) {
+  .introtitle {
+    font-size: xx-small;
+  }
+  .introsidetext {
+    font-size: initial;
+  }
+  .ui.grid>.row>.column {
+    padding-left: 1rem;
+    padding-right: 0;
+}
+}
+
+
+@media only screen and (max-width: 650px) {
+    .introside {
+      width: 50%;
+    }
+  }
