@@ -10,7 +10,8 @@ const s3 = new S3(); // initialize the construcotr
 module.exports = {
   signup,
   login,
-  profile
+  profile,
+  allUsers
 };
 
 async function signup(req, res) {
@@ -69,6 +70,16 @@ async function profile(req, res){
   } catch(err){
     res.status(400).json({err})
   }
+}
+
+async function allUsers(req, res) {
+  try {
+    // this populates the user when you find the posts
+    // so you'll have access to the users information
+    // when you fetch teh posts
+    const users = await User.find({})
+    res.status(200).json({ users });
+  } catch (err) {}
 }
 
 /*----- Helper Functions -----*/

@@ -1,0 +1,12 @@
+.usersinfodiv {
+    width: 60% !important;
+}
+
+.usersinfoimg > img{
+    width: 60px !important;
+    height: 60px !important;
+}
+
+.userinfoname {
+    float: right;
+}
