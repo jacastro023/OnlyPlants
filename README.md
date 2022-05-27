@@ -1,37 +1,70 @@
-## Setup 
-
-1. Clone the repo
-2. Rename the folder to your Project, you can use the `mv` command like `mv mern-boilerplate yourprojectname`
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
+# OnlyPlants:
 
 
-#### Setup your git repo
+<p>This mobile responsive application is meant as a way for users to share their love for their plants.</p>
 
-1. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-2. Then you can run the following commands in the root of your project 
+<p>In this application users are able to signup to create their profile. Once they are logged in, they are able to see all of the posts users have created and also are able to create their own posts. Users can go to a certain post and comment on it or like a post. If a user is interested in a post they can also view the users profile page and see more of their posts.</p>
 
-```
-git init
-git add .
-git commit -m "first commit"
-git remote add origin git@git.generalassemb.ly:SEI-CC/test.git // this will be whatever your address will be, look at the address in the code github gives you!
-git push -u origin main
-```
 
-#### Setup the App
+<br>
 
-```npm install```
+## User Stories
 
-*DOTENV*
+-  AAU, I want to be able to signup, login, logout.
+-  AAU, I want to be able to create profile to store my information.
+-  AAU, I want to be able add an image to my profile.
+-  AAU, I want to see other users posts.
+-  AAU, I want to comment on posts.
+-  AAU, I want to delete my comments.
+-  AAU, I want to be able to like and unlike a post.
+-  AAU, I want to see my own profile page.
 
-`touch .env`
+## ERD
 
-add your variables
+![ERD](src/images/readme/erd.png)
 
-```
-DATABASE_URL=mongodb://localhost:27017/testagramV2
-BUCKET_NAME=catcollectorone
-SECRET=mysecretforjwt
-```
+## Screenshots:
 
-The app is configured, to use those respective key names for the database, jwt secret and aws bucket, of course you'll have your own values
+![Home](src/images/readme/home.png)
+
+![Profile Page](src/images/readme/profile.png)
+
+![Post Page](src/images/readme/post.png)
+
+![Feed Page](src/images/readme/feed.png)
+
+<br>
+
+## Getting Started
+## User Stories | ERD Diagram | Wireframes 
+
+-   [Trello Board](https://trello.com/b/heawhlzY/project-4)
+-   [OnlyPlants](https://onlyplants23.herokuapp.com/)
+
+<br>
+
+#### Technologies used:
+
+> React
+>
+> AWS S3
+>
+> Express
+>
+> Javascript
+>
+> Jquerymulter
+>
+> CSS
+>
+> semantic-ui
+>
+> jsonwebtoken
+
+#### Next Steps:
+
+-   Add a way for users to follow each other
+-   Add API for plant health
+-   Add API for plant identification
+-   Add a way for uses to search though the posts
+-   Add further Mobile Responsive CSS to enhance user flow
