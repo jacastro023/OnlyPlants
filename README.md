@@ -53,7 +53,7 @@
 >
 > Javascript
 >
-> Jquerymulter
+> multer
 >
 > CSS
 >
